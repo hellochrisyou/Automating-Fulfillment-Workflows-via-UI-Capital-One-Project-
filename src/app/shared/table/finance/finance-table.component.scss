@@ -1,0 +1,13 @@
+@import '../../../table-mixins.scss';
+
+@include mat-table-columns((
+
+    name: (width: 20rem, color: gray, font-size: 0.5rem),
+    order: (width: 5rem, font-size: 0.5rem),
+    actionOnFailure: (width: 10rem, font-size: 0.5rem),
+    required: (width: 1rem, font-size: 0.5rem)
+));
+
+table {
+    margin: 5vh 0 5vh 0;
+}

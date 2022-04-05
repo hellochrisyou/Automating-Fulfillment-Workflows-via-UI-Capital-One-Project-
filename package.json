@@ -1,0 +1,36 @@
+{
+  "name": "finance-app",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "*",
+    "@angular/cdk": "*",
+    "@angular/common": "*",
+    "@angular/compiler": "*",
+    "@angular/core": "*",
+    "@angular/flex-layout": "*",
+    "@angular/forms": "*",
+    "@angular/material": "*",
+    "@angular/platform-browser": "*",
+    "@angular/platform-browser-dynamic": "*",
+    "@angular/router": "*",
+    "core-js": "*",
+    "rxjs": "*",
+    "tslib": "*",
+    "zone.js": "*"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "*",
+    "@angular/cli": "*",
+    "@angular/compiler-cli": "*",
+    "@types/jasmine": "*",
+    "@types/node": "*",
+    "jasmine-core": "*",
+    "karma": "*",
+    "karma-chrome-launcher": "*",
+    "karma-coverage": "*",
+    "karma-jasmine": "*",
+    "karma-jasmine-html-reporter": "*",
+    "typescript": "*"
+  }
+}

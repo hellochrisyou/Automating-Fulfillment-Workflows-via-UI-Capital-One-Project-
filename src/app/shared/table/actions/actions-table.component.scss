@@ -1,0 +1,7 @@
+@import '../../../table-mixins.scss';
+
+@include mat-table-columns((
+
+    name: (width: 20rem, color: gray),
+    description: (width: 30rem)
+));

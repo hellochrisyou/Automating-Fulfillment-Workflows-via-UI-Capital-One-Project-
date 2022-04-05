@@ -1,0 +1,125 @@
+<div id="flex-button-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <button id="main-back-button" mat-raised-button (click)="navigateHome()">Back</button>
+</div>
+<mat-horizontal-stepper class="stepper" [linear]="true" #stepper="matHorizontalStepper">
+    <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel>Edit Actions</ng-template>
+        <div>
+            <button mat-button matStepperNext class="next-button">Next</button>
+        </div>
+        <span class="edit-action-table" style="float:left">
+            <div cdkDropList id="editActionsList" [cdkDropListData]="thisFinanceWorkflow"
+                [cdkDropListConnectedTo]="['edit-list']" (cdkDropListDropped)="drop($event)">
+                <h3>{{name}}</h3>
+                <table class="mat-elevation-z7 fulfillment-table ods-table ods-table--tiny" style="margin-left:auto; margin-right:auto;">
+                    <thead class="ods-table__head">
+                        <tr class="ods-table__row">
+                            <th scope="col" class="ods-table__header"></th>
+                            <th scope="col" class="ods-table__header">Name</th>
+                            <th scope="col" class="ods-table__header">Order</th>
+                            <th scope="col" class="ods-table__header">Action on Failure</th>
+                            <th scope="col" class="ods-table__header">Batch Action</th>
+                            <th scope="col" class="ods-table__header">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody class="ods-table__body">
+                        <tr *ngFor="let action of thisFinanceWorkflow; let i = index;" cdkDrag
+                            matTooltip="Drag and drop" matTooltipPosition="left" class="ods-table__row">
+                            <td class="ods-table__cell">
+                                <mat-icon>drag_handle</mat-icon>
+                            </td>
+                            <td class="ods-table__cell">{{action.name}}</td>
+                            <ng-container *ngIf="action.order!==-1">
+                                <td class="ods-table__cell order-column">{{action.order}}</td>
+                            </ng-container>
+                            <ng-container *ngIf="action.order===-1">
+                                <td class="ods-table__cell order-column">N/A</td>
+                            </ng-container>
+                            <td class="ods-table__cell">
+                                <mat-form-field>
+                                    <mat-select [(value)]="action.actionOnFailure"
+                                        (selectionChange)="onChange($event.value, i)">
+                                        <mat-option *ngFor="let actionOption of actionOnFailure"
+                                            [value]="actionOption.value">
+                                            {{actionOption.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </td>
+                            <td class="ods-table__cell">
+                                <mat-checkbox [checked]="action.required" (change)="onBatchChange(i)"
+                                    matTooltip="Toggle Batch Action" matTooltipPosition="above">
+                                </mat-checkbox>
+                            </td>
+                            <td class="ods-table__cell">
+                                <mat-icon class="cancel-icon" (click)="removeItem(i)" matTooltip="Remove"
+                                    matTooltipPosition="right">cancel</mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <ng-container *ngIf="thisFinanceWorkflow.length === 0">
+                <span class="static-text mat-elevation-z1">Drag Workflow Action HERE</span>
+            </ng-container>
+        </span>
+
+        <span class="orchestrator-container">
+            <div cdkDropList id="edit-list" [cdkDropListData]="actionsInfo"
+                [cdkDropListConnectedTo]="['editActionsList']" (cdkDropListDropped)="drop($event)">
+                <h3>Actions Available</h3>
+                <table class="mat-elevation-z7 orchestrator-table ods-table ods-table--tiny"
+                    style="margin-left:auto; margin-right:auto;">
+                    <thead class="ods-table__head">
+                        <tr class="ods-table__row">
+                            <th scope="col" class="ods-table__header"></th>
+                            <th scope="col" class="ods-table__header">Name</th>
+                            <th scope="col" class="ods-table__header">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="ods-table__body">
+                        <tr *ngFor="let orchestratorActionInfo of actionsInfo" cdkDrag
+                            matTooltip="Drag and drop" matTooltipPosition="left" class="ods-table__row">
+                            <td class="ods-table__cell">
+                                <mat-icon>drag_handle</mat-icon>
+                            </td>
+                            <td class="ods-table__cell">{{orchestratorActionInfo.name}}</td>
+                            <td class="ods-table__cell">{{orchestratorActionInfo.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Name is required.">
+        <form [formGroup]="secondFormGroup" class="center-flex-wrapper">
+            <ng-template matStepLabel>Create Name</ng-template>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="secondCtrl" placeholder="{{name}}" required>
+                <mat-error *ngIf="secondCtrl">"SCREAMING_CAMEL_CASE only</mat-error>
+            </mat-form-field>
+            <div class="flex-button-wrapper">
+                <button mat-raised-button id="prev-button" matStepperPrevious>Back</button>
+                <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Submit</ng-template>
+        <section class="center-flex-wrapper">
+            <h3><u>{{secondFormGroup.get('secondCtrl').value}}</u></h3>
+            <ng-container *ngIf="thisFinanceWorkflow.length===0">
+                <h5>You cannot have an empty workflow</h5>
+            </ng-container>
+            <ng-container *ngIf="thisFinanceWorkflow.length>0">
+                <finance-table [dataArray]="thisFinanceWorkflow"></finance-table>   
+            </ng-container>
+            <div class="submit-button-wrapper">
+                <button mat-raised-button (click)="submit()" id="save-button"
+                    [disabled]="thisFinanceWorkflow.length===0">Save</button>
+            </div>
+        </section>
+    </mat-step>
+</mat-horizontal-stepper>

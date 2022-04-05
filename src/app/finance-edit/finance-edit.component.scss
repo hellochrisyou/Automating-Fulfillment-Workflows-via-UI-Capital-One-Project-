@@ -1,0 +1,190 @@
+.cdk-overlay-container {
+	z-index:1000;
+}
+.next-button {
+	margin: 0 auto;
+	display:none;
+}
+h3 {
+	text-align: center;
+	margin-bottom: 0; 
+}
+
+.cdk-drag-preview {
+	box-sizing: border-box;
+	border-radius: 4px;
+	box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),0 8px 10px 1px rgba(0, 0, 0, 0.14),0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.cdk-drag-placeholder {
+	opacity: 1;
+}
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+	transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+.stepper, .cdk-drag, .component-container {
+	background-color: whitesmoke;
+	margin: 0;
+	padding: 3rem;
+}
+thead tr {
+    border-bottom: 1px solid lightgrey;
+}
+.stepper {
+	min-height: 100vh;
+}
+.cdk-drag {
+    background-color: white;
+	cursor: pointer;
+	font-size: 0.7rem;
+	position: relative;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+table.fulfillment-table td:nth-child(5) {
+	padding-left: 40px;
+}
+table.fulfillment-table td {
+	padding: 0.85rem 0 0 0;
+}
+
+td {
+    text-align: left;
+}
+table.fulfillment-table tr {
+	white-space: nowrap;
+	line-height: 2rem;
+}
+.back-button {
+	background-color: grey;
+	margin-right: 2vw;
+}
+.center-flex-wrapper {
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	margin: 0 auto;
+}
+form.center-flex-wrapper {
+	width: 25vw;
+}
+section.center-flex-wrapper {
+	width: 35vw;
+}
+.flex-button-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.submit-table tr td:first-child, .submit-table tr th:first-child {
+	width: 8rem;
+}
+.submit-table tr td:nth-child(2), .submit-table tr th:nth-child(2) {
+	width: 1rem;
+}
+.submit-table tr td:nth-child(3), .submit-table tr th:nth-child(3) {
+	width: 5rem;
+}
+.submit-table tr td:nth-child(4), .submit-table tr th:nth-child(4) {
+	width: 5rem;
+}
+.submit-button-wrapper {
+	margin-top: 5vh;
+}
+.cancel-icon {
+	color: crimson;
+	cursor: pointer;
+	padding-bottom: 0.45rem;
+	margin-left: 1rem;
+}
+.cancel-icon:hover {
+	color: red;
+}
+.orchestrator-container {
+	position: absolute;
+	width: 40%;
+    margin: 0 auto;
+    margin-left: 10%;
+	text-align: center;
+}
+.mat-checkbox-ripple .mat-ripple-element,.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+	background-color: green;
+}
+.mat-checkbox-checked.mat-primary .mat-checkbox-background, .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background{
+	background-color: green;
+}
+h5 {
+	color: crimson;
+}
+tr th {
+    padding: 1rem;
+}
+.static-text { 
+	border: black 1px solid;
+	padding: 0.5rem;
+	position: absolute;
+	width: 35vw;
+	text-align: center;
+}
+.create-action-table {
+	margin-top: 0rem;
+}
+h3 {
+	text-align: center;
+}
+section {
+	margin: 0 auto;
+}
+
+button#prev-button {
+    margin-right: 2vw;
+}
+
+button#save-button {
+    background-color: green;
+    color: white;
+}
+
+button#main-back-button {
+   
+    background-color: grey;
+    color: white;
+}
+#flex-button-wrapper {
+    padding-top: 5vh;
+    background-color: whitesmoke;
+}
+
+// Table Transformation
+table , table tr{
+    border-collapse: collapse;
+    background-color: white;
+  }
+  table tr {
+    // border: 0.1rem solid black; 
+  }
+  table tr td{
+      padding: 1rem;
+  }
+  .orchestrator-table {
+    margin-top: 0;
+}
+.orchestrator-table tr td:nth-child(1) {
+    width: 1rem;
+}
+.orchestrator-table tr td:nth-child(2) {
+    min-width: 15rem;
+}
+
+.orchestrator-table tr td:nth-child(3) {
+    min-width: 30rem;;
+}
+
+table.mat-table {
+    border-spacing: 0;
+}
