@@ -1,5 +1,4 @@
-<a href="https://stackblitz.com/edit/angular-material-drag-and-drop-table"><h1>&#8594; Click here to visit the website on Stackblitz.com</h1></a>
-<h3>&#9888; Video Preview available at bottom of this page &#9888;</h3>
+<a href="https://stackblitz.com/edit/angular-material-drag-and-drop-table"><h3>&#8594; Click here to visit the website on Stackblitz.com</h3></a><h3>&#9888; Video Preview available at bottom of this page &#9888;</h3>
 <p align="center">
   <img  src="https://storage.googleapis.com/static-images-703/capital-one-collage.png" width="80%"/>
 </p>
