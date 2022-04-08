@@ -21,35 +21,47 @@
 <section>
   -->
 <section>
-    <button mat-raised-button id="create-button">
-        <a [routerLink]="['/edit', 'create']" routerLinkActive="active">Create</a>
-    </button>
-    <button class="gold-background animated wobble intro-center mat-elevation-z2" mat-raised-button
-        (click)="navigateToIntro()">Back to Intro</button>
-    <div id="flex-box" fxLayout="row" fxLayoutAlign="space-around start">
-        <div class="action-table" style="float:left">
-            <h3><u>Fulfillment Workflow</u></h3>
-            <span *ngFor="let workload of financeWorkflows;let i = index">
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <span matBadge="{{financeWorkflows[i].actions.length}}" matBadgeOverlap="false"
-                                matBadgePosition="after"><a [routerLink]="['/edit', i]"
-                                    matTooltip="Edit {{financeWorkflows[i].name}}" matTooltipPosition="above"
-                                    routerLinkActive="active">
-                                    <mat-icon>build</mat-icon>
-                                </a></span>
-                            <span id="workload-name">{{workload.name}}</span>
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <finance-table [dataArray]="workload.actions"></finance-table>
-                </mat-expansion-panel>
-            </span>
-        </div>
-        <div class="orchestrator-action-info" style="float:right">
-            <h3><u>Orchestrator Action Information</u></h3>
-            <actions-table [dataArray]="actionsInfo"></actions-table>
-        </div>
-
+  <button mat-raised-button id="create-button">
+    <a [routerLink]="['/edit', 'create']" routerLinkActive="active">Create</a>
+  </button>
+  <button
+    class="gold-background animated wobble intro-center mat-elevation-z2"
+    mat-raised-button
+    (click)="navigateToIntro()"
+  >
+    Back to Intro
+  </button>
+  <div id="flex-box" fxLayout="row" fxLayoutAlign="space-around start">
+    <div class="action-table" style="float:left">
+      <h3><u>Fulfillment Workflow</u></h3>
+      <span *ngFor="let workload of financeWorkflows; let i = index">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span
+                matBadge="{{ financeWorkflows[i].actions.length }}"
+                matBadgeOverlap="false"
+                matBadgePosition="after"
+                ><a
+                  [routerLink]="['/edit', i]"
+                  matTooltip="Edit {{ financeWorkflows[i].name }}"
+                  matTooltipPosition="above"
+                  routerLinkActive="active"
+                >
+                  <mat-icon>build</mat-icon>
+                </a></span
+              >
+              <span id="workload-name">{{ workload.name }}</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <finance-table [dataArray]="workload.actions"></finance-table>
+        </mat-expansion-panel>
+      </span>
     </div>
-    <section>
+    <div class="orchestrator-action-info" style="float:right">
+      <h3><u>Orchestrator Action Information</u></h3>
+      <actions-table [dataArray]="actionsInfo"></actions-table>
+    </div>
+  </div>
+  <section></section>
+</section>

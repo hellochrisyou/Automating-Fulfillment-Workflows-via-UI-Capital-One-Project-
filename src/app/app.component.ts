@@ -5,8 +5,8 @@ import { fadeAnimation } from './animations';
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [fadeAnimation]
+  animations: [fadeAnimation],
 })
 export class AppComponent {
-  name = 'Angular';
+  name = 'Standalone Capital 1 Side Project';
 }

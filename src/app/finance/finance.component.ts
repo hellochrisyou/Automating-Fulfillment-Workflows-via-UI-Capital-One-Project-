@@ -5,16 +5,19 @@ import { Router } from '@angular/router';
 
 import { ActionList } from '../model/model';
 import { FinanceService } from '../service/finance.service';
-import { ACTION_LIST, DISPLAYED_ACTION_COLUMNS, DISPLAYED_FINNACE_COLUMNS } from './../data/data';
+import {
+  ACTION_LIST,
+  DISPLAYED_ACTION_COLUMNS,
+  DISPLAYED_FINNACE_COLUMNS,
+} from './../data/data';
 import { FinanceList } from './../model/model';
 
 @Component({
   selector: 'app-finance',
   templateUrl: './finance.component.html',
-  styleUrls: ['./finance.component.scss']
+  styleUrls: ['./finance.component.scss'],
 })
 export class FinanceComponent implements OnInit {
-
   financeWorkflows: FinanceList[] = [];
   actionsInfo: ActionList[] = [];
   actionColumns = DISPLAYED_ACTION_COLUMNS;
@@ -23,7 +26,7 @@ export class FinanceComponent implements OnInit {
     private _router: Router,
     private financeService: FinanceService,
     private actionsListService: ActionsListService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getfinanceWorkflows();
@@ -32,7 +35,7 @@ export class FinanceComponent implements OnInit {
   }
 
   public navigateToIntro(): void {
-    this._router.navigate([''])
+    this._router.navigate(['']);
   }
 
   public getfinanceWorkflows(): void {
@@ -41,9 +44,9 @@ export class FinanceComponent implements OnInit {
   }
 
   public reorderFulFillmentWorkflow() {
-    this.financeWorkflows.forEach(workflow => {
+    this.financeWorkflows.forEach((workflow) => {
       let count = 1;
-      workflow.actions.forEach(item => {
+      workflow.actions.forEach((item) => {
         // tslint:disable-next-line: triple-equals
         if (item.required == false) {
           item.required = false;
